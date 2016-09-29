@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class InjectedRight extends React.Component {
+export default class InjectionRight extends React.Component {
   constructor() {
     super();
   }
@@ -9,7 +9,7 @@ export default class InjectedRight extends React.Component {
     return (
       <div>
         <div>
-          It is a injected right area:
+          It is an injection right area:
         </div>
         <div>
           Plugin Area:

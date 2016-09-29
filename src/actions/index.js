@@ -1,21 +1,20 @@
-import * as types from '../constants/ActionTypes'
+import * as actionTypes from '../constants/ActionTypes'
 import resources from '../constants/Resources'
 
 export const receiveSources = () => ({
-  type: types.RECEIVE_SOURCES,
+  type: actionTypes.RECEIVE_SOURCES,
   sources: resources
 });
 
-export const registerPlugin = (name, component, container) => ({
-  type: types.REGISTER_PLUGIN,
+export const registerPlugin = (name, component, containerType, url) => ({
+  type: actionTypes.REGISTER_PLUGIN,
   name: name,
   component: component,
-  container: container
+  containerType: containerType,
+  url: url
 });
 
-export const unregisterPlugin = (name, conponent, container) => ({
-  type: types.UNREGISTER_PLUGIN,
-  name: name,
-  component: component,
-  container: container
+export const unregisterPlugin = (name) => ({
+  type: actionTypes.UNREGISTER_PLUGIN,
+  name: name
 });

@@ -1,8 +1,8 @@
 import React from 'react'
 import Sources from '../containers/Sources'
 import Plugins from '../containers/Plugins'
-import InjectedLeft from '../containers/InjectedLeft'
-import InjectedRight from '../containers/InjectedRight'
+import InjectionLeft from '../containers/InjectionLeft'
+import InjectionRight from '../containers/InjectionRight'
 
 export default class App extends React.Component {
   constructor() {
@@ -14,8 +14,8 @@ export default class App extends React.Component {
       <div>
         <Sources />
         <Plugins />
-        <InjectedLeft />
-        <InjectedRight />
+        <InjectionLeft />
+        <InjectionRight />
       </div>
     );
   }

@@ -1,14 +1,15 @@
-import * as types from '../constants/ActionTypes'
+import * as actionTypes from '../constants/ActionTypes'
 
 const plugin = (state, action) => {
   switch (action.type) {
-    case types.REGISTER_PLUGIN:
+    case actionTypes.REGISTER_PLUGIN:
       return {
         name: action.name,
         component: action.component,
-        container: action.container
+        containerType: action.containerType,
+        url: action.url
       };
-    case types.UNREGISTER_PLUGIN:
+    case actionTypes.UNREGISTER_PLUGIN:
       if (state.name !== action.name) {
         return state;
       }
@@ -21,12 +22,12 @@ const plugin = (state, action) => {
 
 const plugins = (state = [], action) => {
   switch (action.type) {
-    case types.REGISTER_PLUGIN:
+    case actionTypes.REGISTER_PLUGIN:
       return [
         ...state,
-        plugin(undefine, action)
+        plugin(undefined, action)
       ];
-    case types.UNREGISTER_PLUGIN:
+    case actionTypes.UNREGISTER_PLUGIN:
       return state.map(p => plugin(p, action));
     default:
       return state;
@@ -34,3 +35,11 @@ const plugins = (state = [], action) => {
 };
 
 export default plugins;
+
+export function getPlugins(state) {
+  return state;
+}
+
+export function getPluginsByContainer(state, containerType) {
+  return state.filter(x => x.containerType === containerType)
+}
