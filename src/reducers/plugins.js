@@ -23,10 +23,21 @@ const plugin = (state, action) => {
 const plugins = (state = [], action) => {
   switch (action.type) {
     case actionTypes.REGISTER_PLUGIN:
-      return [
-        ...state,
-        plugin(undefined, action)
-      ];
+      if (state.find(p => p.name === action.name)) {
+        return state.map(p => {
+          if (p.name === action.name) {
+            p.component = action.component ? action.component : p.component;
+            p.containerType = action.containerType ? action.containerType : p.containerType;
+            p.url = action.url ? action.url : p.url;
+          };
+          return p;
+        });
+      } else {
+        return [
+          ...state,
+          plugin(undefined, action)
+        ];
+      }
     case actionTypes.UNREGISTER_PLUGIN:
       return state.map(p => plugin(p, action));
     default:

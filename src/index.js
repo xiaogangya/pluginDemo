@@ -5,7 +5,7 @@ import App from './components/App'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
 import reducer from './reducers'
-import { receiveSources, registerPlugin } from './actions/index'
+import { receiveSources, registerPlugin, unregisterPlugin } from './actions/index'
 import createLogger from 'redux-logger'
 import thunk from 'redux-thunk'
 import { getPlugins } from './api'
@@ -19,11 +19,15 @@ const store = createStore(reducer, compose(applyMiddleware(...middleware), windo
 store.dispatch(receiveSources());
 getPlugins().then(plugins => {
   plugins.forEach(x => {
-    if (x.name && x.container && x.url) {
-      store.dispatch(registerPlugin(x.name, x.component, x.container, x.url));
+    if (x.name && x.containerType && x.url) {
+      store.dispatch(registerPlugin(x.name, x.component, x.containerType, x.url));
     }
   });
 });
+
+window.store = store;
+window.registerPlugin = registerPlugin;
+window.unregisterPlugin = unregisterPlugin;
 
 ReactDOM.render(
   <Provider store={store}>
