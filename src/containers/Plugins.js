@@ -9,16 +9,22 @@ class Plugins extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
-          It is a plugin list:
+      <table className="table table-striped table-hover">
+        <tr>
+          <th>name</th>
+          <th>injected area</th>
+          <th>url</th>
+        </tr>
           {
             this.props.plugins.map(x => {
-            return <div key={x.name}>{x.name}, {x.containerType}, {x.url}</div>
+            return <tr key={x.name}>
+              <td>{x.name}</td>
+              <td>{x.containerType}</td>
+              <td>{x.url}</td>
+            </tr>
            })
           }
-        </div>
-      </div>
+      </table>
     );
   }
 }

@@ -11,7 +11,6 @@ class Sources extends React.Component {
     return (
       <div>
         <div>
-          It is a sources list:
           {
             this.props.sources.map(x => {
             return <div key={x.key}>{x.key}: {x.value}</div>

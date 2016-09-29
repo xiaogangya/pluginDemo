@@ -12,10 +12,41 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <Sources />
-        <Plugins />
-        <InjectionLeft />
-        <InjectionRight />
+        <div className="panel panel-default">
+          <div className="panel-heading">
+            <h3 className="panel-title">Sources</h3>
+          </div>
+          <div className="panel-body">
+            <Sources />
+          </div>
+        </div>
+        <div className="panel panel-default">
+          <div className="panel-heading">
+            <h3 className="panel-title">Plugins</h3>
+          </div>
+          <div className="panel-body">
+          </div>
+          <Plugins />
+        </div>
+        <div className="panel panel-default">
+          <div className="panel-heading">
+            <h3 className="panel-title">Injection Area</h3>
+          </div>
+          <div className="panel-body">
+            <div className="container-fluid">
+              <div className="row">
+                <div className="col-md-6">
+                <header><h4>Left</h4></header>
+                <InjectionLeft />
+                </div>
+                <div className="col-md-6"><span className="pull-right">
+                <header><h4>Right</h4></header>
+                <InjectionRight />
+                </span></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

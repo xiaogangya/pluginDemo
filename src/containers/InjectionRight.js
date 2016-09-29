@@ -29,15 +29,13 @@ class InjectionRight extends React.Component {
   render() {
     return (
       <div>
-        <div>
-          It is an injection right area:
-        </div>
-        <div>
-          Plugin Area:
+        <ul className="list-group">
           {this.props.plugins.map(plugin => {
-            return <PluginWrapper key={plugin.name} name={plugin.name} component={plugin.component} context={this.props.context} />
+            return <li className="list-group-item">
+              <PluginWrapper key={plugin.name} name={plugin.name} component={plugin.component} context={this.props.context} />
+            </li>
           })}
-        </div>
+        </ul>
       </div>
     );
   }
