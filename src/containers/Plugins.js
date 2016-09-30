@@ -9,21 +9,25 @@ class Plugins extends React.Component {
 
   render() {
     return (
-      <table className="table table-striped table-hover">
-        <tr>
-          <th>name</th>
-          <th>injected area</th>
-          <th>url</th>
-        </tr>
+      <table className="table table-striped table-hover table-condensed">
+        <thead>
+          <tr>
+            <th>name</th>
+            <th>injected area</th>
+            <th>url</th>
+          </tr>
+        </thead>
+        <tbody>
           {
             this.props.plugins.map(x => {
-            return <tr key={x.name}>
-              <td>{x.name}</td>
-              <td>{x.containerType}</td>
-              <td>{x.url}</td>
-            </tr>
-           })
+              return <tr key={x.name}>
+                <td>{x.name}</td>
+                <td>{x.containerType}</td>
+                <td>{x.url}</td>
+              </tr>
+            })
           }
+        </tbody>
       </table>
     );
   }
@@ -37,7 +41,7 @@ const mapStateToProps = state => ({
   plugins: getPlugins(state.plugins)
 });
 
-const mapDispatchToProps =  ({
+const mapDispatchToProps = ({
 })
 
 export default connect(

@@ -4,6 +4,15 @@ import ReactDOM from 'react-dom';
 export default class PluginWrapper extends React.Component {
   constructor() {
     super();
+
+    this.style = {
+      success: {
+        color: '#3c763d'
+      },
+      danger: {
+        color: '#a94442'
+      }
+    };
   }
 
   componentDidMount() {
@@ -35,7 +44,7 @@ export default class PluginWrapper extends React.Component {
     catch (e) {
       console.error(e);
       console.log(e.stack);
-      element = <div className="unsafe-plugin-exception">
+      element = <div className="unsafe-plugin-exception" style={this.style.danger}>
         <div className="message">{this.props.name} could not be displayed.</div>
         <div className="trace">{e.stack}</div>
       </div>
@@ -45,7 +54,7 @@ export default class PluginWrapper extends React.Component {
 
   render() {
     return (
-      <div className="plugin-wrapper"></div>
+      <div className="plugin-wrapper" style={this.style.success}></div>
     );
   }
 }

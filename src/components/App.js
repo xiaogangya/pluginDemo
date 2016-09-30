@@ -12,23 +12,27 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <div className="panel panel-default">
+        <div className="panel panel-info">
           <div className="panel-heading">
             <h3 className="panel-title">Sources</h3>
           </div>
           <div className="panel-body">
-            <Sources />
+            <div className="container-fluid">
+              <Sources />
+            </div>
           </div>
         </div>
-        <div className="panel panel-default">
+        <div className="panel panel-info">
           <div className="panel-heading">
             <h3 className="panel-title">Plugins</h3>
           </div>
           <div className="panel-body">
+          <div className="container-fluid"> 
+            <Plugins />
           </div>
-          <Plugins />
+          </div>
         </div>
-        <div className="panel panel-default">
+        <div className="panel panel-info">
           <div className="panel-heading">
             <h3 className="panel-title">Injection Area</h3>
           </div>
