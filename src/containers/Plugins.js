@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { getPlugins } from '../reducers/plugins'
+import { enablePlugin } from '../actions'
 
 class Plugins extends React.Component {
   constructor() {
@@ -14,6 +15,7 @@ class Plugins extends React.Component {
           <tr>
             <th>name</th>
             <th>injected area</th>
+            <th>enable</th>
             <th>url</th>
           </tr>
         </thead>
@@ -23,6 +25,7 @@ class Plugins extends React.Component {
               return <tr key={x.name}>
                 <td>{x.name}</td>
                 <td>{x.containerType}</td>
+                <td><button type="button" onClick={() => this.props.enablePlugin(x.name, !x.enable)}>{x.enable.toString()}</button></td>
                 <td>{x.url}</td>
               </tr>
             })
@@ -41,7 +44,10 @@ const mapStateToProps = state => ({
   plugins: getPlugins(state.plugins)
 });
 
-const mapDispatchToProps = ({
+const mapDispatchToProps = dispatch => ({
+  enablePlugin: (name, enable) => {
+    dispatch(enablePlugin(name, enable));
+  }
 })
 
 export default connect(

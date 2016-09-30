@@ -18,3 +18,9 @@ export const unregisterPlugin = (name) => ({
   type: actionTypes.UNREGISTER_PLUGIN,
   name: name
 });
+
+export const enablePlugin = (name, enable) => ({
+  type: actionTypes.ENABLE_PLUGIN,
+  name: name,
+  enable: enable
+});

@@ -38,8 +38,10 @@ export default class PluginWrapper extends React.Component {
     var node = ReactDOM.findDOMNode(this);
     try {
       var Component = this.props.component;
-      var element = <Component context={this.props.context} />;
-      ReactDOM.render(element, node);
+      if (Component) {
+        var element = <Component context={this.props.context} />;
+        ReactDOM.render(element, node);
+      }
     }
     catch (e) {
       console.error(e);

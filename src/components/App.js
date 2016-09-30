@@ -43,7 +43,7 @@ export default class App extends React.Component {
                 <header><h4>Left</h4></header>
                 <InjectionLeft />
                 </div>
-                <div className="col-md-6"><span className="pull-right">
+                <div className="col-md-6"><span>
                 <header><h4>Right</h4></header>
                 <InjectionRight />
                 </span></div>
