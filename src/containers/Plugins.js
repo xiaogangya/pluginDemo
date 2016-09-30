@@ -13,10 +13,10 @@ class Plugins extends React.Component {
       <table className="table table-striped table-hover table-condensed">
         <thead>
           <tr>
-            <th>name</th>
-            <th>injected area</th>
-            <th>enable</th>
-            <th>url</th>
+            <th>Name</th>
+            <th>Injected area</th>
+            <th>Enable</th>
+            <th>Url</th>
           </tr>
         </thead>
         <tbody>
@@ -26,7 +26,7 @@ class Plugins extends React.Component {
                 <td>{x.name}</td>
                 <td>{x.containerType}</td>
                 <td><button type="button" onClick={() => this.props.enablePlugin(x.name, !x.enable)}>{x.enable.toString()}</button></td>
-                <td>{x.url}</td>
+                <td><a href={x.url} target="_blank">{x.url}</a></td>
               </tr>
             })
           }
